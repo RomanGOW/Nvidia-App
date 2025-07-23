@@ -1,34 +1,3 @@
-<#
-.SYNOPSIS
-    This script automates the detection of an NVIDIA GPU, retrieves the latest NVIDIA App installer (either Enterprise or Public edition), and facilitates its download and installation with customizable parameters.
-.DESCRIPTION
-    This script efficiently manages the process of downloading and installing the latest NVIDIA App by:
-    - Scraping the NVIDIA App webpage to locate the most recent installer.
-    - Verifying the existence and size of the installer file locally.
-    - Confirming the presence of an NVIDIA GPU on the machine prior to installation.
-    - Supporting a dry run mode to simulate operations without actual downloading or installation.
-    - Allowing the user to choose between the Enterprise and Public editions of the NVIDIA App.
-.PARAMETER Verbose
-    Enables verbose logging for detailed output.
-.PARAMETER DryRun
-    Executes the script in a dry run mode to check and extract information without downloading or installing the package.
-.PARAMETER Force
-    Forces the installation of the NVIDIA App even if the same version is already installed or if no NVIDIA GPU is detected.
-.PARAMETER Edition
-    Specifies the edition of the NVIDIA App to install. Valid values are "Enterprise" and "Public". Default is "Public".
-.EXAMPLE
-    .\Install-NvidiaApp.ps1 -Verbose
-.EXAMPLE
-    .\Install-NvidiaApp.ps1 -Force
-.EXAMPLE
-    .\Install-NvidiaApp.ps1 -DryRun
-.EXAMPLE
-    .\Install-NvidiaApp.ps1 -Edition Enterprise
-.LINK
-    NVIDIA App Enterprise: https://www.nvidia.com/en-us/software/nvidia-app-enterprise/
-    NVIDIA App Public: https://www.nvidia.com/en-us/software/nvidia-app/
-#>
-
 param (
     [switch]$Verbose,
     [switch]$DryRun,
@@ -223,7 +192,6 @@ function Install-NvidiaApp {
     }
 }
 
-# Enable verbose logging if the -Verbose switch is provided
 if ($Verbose) {
     $VerbosePreference = "Continue"
 }
